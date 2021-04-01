@@ -9,11 +9,18 @@ import java.util.Scanner;
 
 /**
  *
+
+ * @author Thina Mzosindiso Nontwabaza : 
+ * Student no: 219189153
+ */
+public class Count {
+
  * @author Siphesonke Notsela 219076235
  *
  */
 public class Count {
-
+    private int password, identityNo, age;
+    private String inGameName, gamerId, loginName;
     public static int choice(){
         Scanner sc = new Scanner(System.in);
         int choice;
@@ -39,7 +46,7 @@ public class Count {
     public static int subtraction(int num1, int num2){
         return num1 - num2;
     }
-    private String inGameName, gamerId, loginName;
+    
 
     public void setInGameName(String inGameName) {
         this.inGameName = inGameName;
@@ -60,13 +67,35 @@ public class Count {
     public String getGamerId() {
         return gamerId;
     }
+     public void setPassword(int password) {
+        this.password = password;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void setIdentityNo(int identityNo) {
+        this.identityNo = identityNo;
+    }
 
     public String getLoginName() {
         return loginName;
+      
+      public int getAge() {
+        return age;
+    }
+       public int getIdentityNo() {
+        return identityNo;
+    }
+        public int getPassword() {
+        return password;
+    }
     }
 
     @Override
     public String toString() {
+        return "Count{" + "password=" + password + ", identityNo=" + identityNo + ", age=" + age + '}';
+    }
         return "Account{" + "inGameName=" + inGameName + ", gamerId=" + gamerId + ", loginName=" + loginName + '}';
     }
     

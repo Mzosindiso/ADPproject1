@@ -5,6 +5,18 @@
  */
 package za.ac.cput.adpproject1;
 
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+/**
+ *
+ * @author Thina Mzosindiso Nontwabaza : 
+ * Student no: 219189153
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.AfterEach;
@@ -24,6 +36,10 @@ import org.junit.jupiter.api.Timeout;
  * Student No. 219076235
  */
 public class CountTest {
+ 
+    public Count password1;
+    public Count password2;
+    public Count password3;
     
 
     private Count count1;
@@ -46,6 +62,11 @@ public class CountTest {
     public void testIdentity (){
        assertSame(account1, account3); 
     }
+      //Method test Identity
+    @Test
+    public void testIdentity(){
+        assertSame(password2, password3);
+    }
     
     @BeforeEach
     public void setUp() {
@@ -53,11 +74,24 @@ public class CountTest {
         count2 = new Count();
         count3 = count1;
     }
-
+    @BeforeEach
+    public void setUp(){
+        password1 = new Count();
+        password2 = new Count();
+        password2 = password3;
+         
+    }
     
     @Test
     public void testEquality (){
        assertEquals(account2, account3); 
+    }
+      //Method test Equality
+    @Test
+    public void testEquality(){
+        assertEquals(password2, password3);
+        
+        
     }
 
     /**
@@ -72,7 +106,13 @@ public class CountTest {
         assertSame(expResult, result);
         fail("The test will fail.");
     }
-
+    //Method failed
+    @Test
+    public void TestPassword(){
+        System.out.println("Your password");
+        fail("The test case is a prototype");
+        
+    }
     /**
      * Test of setGamerId method, of class Account.
      */
@@ -85,6 +125,16 @@ public class CountTest {
         String result = account2.getGamerId();
         assertEquals(expResult, result);
     }
+      
+    //Method is disabled
+    @Test
+    @Disabled
+    public void testTime(){
+        System.out.println("Timeout");
+        
+    }
+    
+    
 
     /**
      * Test of setLoginName method, of class Account.
