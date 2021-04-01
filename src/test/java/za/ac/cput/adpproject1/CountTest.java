@@ -40,7 +40,34 @@ public class CountTest {
     @Test
     public void testSomeMethod() {
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(true);
     }
-    
+    public void testDivision(){
+        int number1 = 10;
+        int number2 = 5;
+        double expected = 2.0;
+        double result = Count.division(number1, number2);
+        assertEquals(expected, result);
+    }
+    public void testMultiplication(){
+        int number1 = 7;
+        int number2 = 7;
+        int expected = 49;
+        int result = Count.multiplication(number1, number2);
+        assertEquals(expected, result);
+    }
+    public void testAddition(){
+        int number1 = 11;
+        int number2 = 9;
+        int expected = 20;
+        int result = Count.addition(number1, number2);
+        assertEquals(expected, result);
+    }
+    public void testSubtraction(){
+        int number1 = 15;
+        int number2 = 5;
+        int expected = 10;
+        int result = Count.subtraction(number1, number2);
+        assertEquals(expected, result);
+    }
 }
