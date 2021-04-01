@@ -5,12 +5,15 @@
  */
 package za.ac.cput.adpproject1;
 
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Timeout;
 
 /**
  *
@@ -18,6 +21,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class CountTest {
     
+    private Count count1;
+    private Count count2;
+    private Count count3;
     public CountTest() {
     }
     
@@ -31,6 +37,9 @@ public class CountTest {
     
     @BeforeEach
     public void setUp() {
+        count1 = new Count();
+        count2 = new Count();
+        count3 = count1;
     }
     
     @AfterEach
@@ -41,6 +50,7 @@ public class CountTest {
     public void testSomeMethod() {
         // TODO review the generated test code and remove the default call to fail.
         assertTrue(true);
+        assertFalse(false);
     }
     public void testDivision(){
         int number1 = 10;
@@ -69,5 +79,30 @@ public class CountTest {
         int expected = 10;
         int result = Count.subtraction(number1, number2);
         assertEquals(expected, result);
+    }
+    
+    public void testEquality(){
+    assertEquals(count3, count1);
+    }
+    
+    public void testIdentity(){
+    assertSame(count2, count1);
+    }
+    
+    public void failingTest(){
+    fail("Failing Test");
+    assertEquals(count2, count3);
+    }
+    
+    @Test
+    @Timeout(value=300, unit=TimeUnit.MILLISECONDS)
+    public void testWithTimeout(){
+    final int factorialOf = 1 + (int) (3000 * Math.random());
+        System.out.println("computing "+ factorialOf +" !");
+    }
+    @Test
+    @Disabled("Disabling")
+    public void testDisable(){
+        System.out.println("This will not run");
     }
 }
