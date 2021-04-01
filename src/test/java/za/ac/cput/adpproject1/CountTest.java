@@ -6,9 +6,17 @@
 package za.ac.cput.adpproject1;
 
 import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.*;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Timeout;
 
 /**
  *
@@ -17,9 +25,15 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class CountTest {
     
+
+    private Count count1;
+    private Count count2;
+    private Count count3;
     private static Count account1;  
     private static Count account2;  
     private static Count account3;  
+    public CountTest() {
+    }
     
     @BeforeAll
     public static void setUp() {
@@ -33,6 +47,13 @@ public class CountTest {
        assertSame(account1, account3); 
     }
     
+    @BeforeEach
+    public void setUp() {
+        count1 = new Count();
+        count2 = new Count();
+        count3 = count1;
+    }
+
     
     @Test
     public void testEquality (){
@@ -69,6 +90,53 @@ public class CountTest {
      * Test of setLoginName method, of class Account.
      */
     @Test
+
+    public void testSomeMethod() {
+        // TODO review the generated test code and remove the default call to fail.
+        assertTrue(true);
+        assertFalse(false);
+    }
+    public void testDivision(){
+        int number1 = 10;
+        int number2 = 5;
+        double expected = 2.0;
+        double result = Count.division(number1, number2);
+        assertEquals(expected, result);
+    }
+    public void testMultiplication(){
+        int number1 = 7;
+        int number2 = 7;
+        int expected = 49;
+        int result = Count.multiplication(number1, number2);
+        assertEquals(expected, result);
+    }
+    public void testAddition(){
+        int number1 = 11;
+        int number2 = 9;
+        int expected = 20;
+        int result = Count.addition(number1, number2);
+        assertEquals(expected, result);
+    }
+    public void testSubtraction(){
+        int number1 = 15;
+        int number2 = 5;
+        int expected = 10;
+        int result = Count.subtraction(number1, number2);
+        assertEquals(expected, result);
+    }
+    
+    public void testEquality(){
+    assertEquals(count3, count1);
+    }
+    
+    public void testIdentity(){
+    assertSame(count2, count1);
+    }
+    
+    public void failingTest(){
+    fail("Failing Test");
+    assertEquals(count2, count3);
+
     @Timeout(value = 2, unit = TimeUnit.SECONDS)
     public void testSetLoginName() { 
       System.out.println("setLonginName");
@@ -78,4 +146,15 @@ public class CountTest {
         assertSame(expResult, result);
     }
     
+    @Test
+    @Timeout(value=300, unit=TimeUnit.MILLISECONDS)
+    public void testWithTimeout(){
+    final int factorialOf = 1 + (int) (3000 * Math.random());
+        System.out.println("computing "+ factorialOf +" !");
+    }
+    @Test
+    @Disabled("Disabling")
+    public void testDisable(){
+        System.out.println("This will not run");
+    }
 }
