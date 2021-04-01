@@ -7,7 +7,8 @@ package za.ac.cput.adpproject1;
 
 /**
  *
- * @author Thina Mzosindiso Nontwabaza : 219189153
+ * @author Thina Mzosindiso Nontwabaza : 
+ * Student no: 219189153
  */
 public class Count {
     private int password, identityNo, age;
