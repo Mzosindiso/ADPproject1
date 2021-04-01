@@ -5,42 +5,41 @@
  */
 package za.ac.cput.adpproject1;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author mzura
+ * @author Thina Mzosindiso Nontwabaza : 219189153
  */
 public class CountTest {
+ 
+    public Count password1;
+    public Count password2;
+    public Count password3;
     
-    public CountTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp(){
+        password1 = new Count();
+        password2 = new Count();
+        password3 = password2;
+         
+    }
+    @Test
+    public void testEquality(){
+        assertEquals(password2, password3);
+        
+        
+    }
+    @Test
+    public void testIdentity(){
+        assertSame(password2, password3);
+        
     }
     
-    @AfterEach
-    public void tearDown() {
-    }
-
-    @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }
