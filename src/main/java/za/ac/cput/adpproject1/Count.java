@@ -39,14 +39,66 @@ public class Count {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int choice = 0;
+        
         System.out.println("Would you like to use a caculator(Enter Y/N): ");
         char option = Character.toUpperCase(sc.nextLine().charAt(0));
         
         if (option == 'Y'){
-            choice();
+            choice = choice();
         }else{
             System.out.println("You do not want to use a calculator.Proceed!");
         }
-        
+        switch(choice){
+            case 1:
+            {
+                System.out.println("Enter your first number: ");
+                int number1 = sc.nextInt();
+                System.out.println("Enter your second number: ");
+                int number2 = sc.nextInt();
+                double answer = division(number1, number2);
+                System.out.println(" ");
+                System.out.println("Your answer is: "+ answer);
+                break;
+            }
+            case 2:
+            {
+                System.out.println("Enter your first number: ");
+                int number1 = sc.nextInt();
+                System.out.println("Enter your second number: ");
+                int number2 = sc.nextInt();
+                int answer = multiplication(number1, number2);
+                System.out.println(" ");
+                System.out.println("Your answer is: "+ answer);
+                break;
+            }
+            case 3:
+            {
+                System.out.println("Enter your first number: ");
+                int number1 = sc.nextInt();
+                System.out.println("Enter your second number: ");
+                int number2 = sc.nextInt();
+                int answer = addition(number1, number2);
+                System.out.println(" ");
+                System.out.println("Your answer is: "+ answer);
+                break;
+            }
+            case 4:
+            {
+                System.out.println("Enter your first number: ");
+                int number1 = sc.nextInt();
+                System.out.println("Enter your second number: ");
+                int number2 = sc.nextInt();
+                int answer = subtraction(number1, number2);
+                System.out.println(" ");
+                System.out.println("Your answer is: "+ answer);
+                break;
+            }
+            default:
+            {
+                System.out.println("You chose a wrong number!");
+                break;
+            }
+        }
     }
 }
